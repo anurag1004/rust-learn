@@ -54,6 +54,12 @@ fn main() {
         Since the ownership of the "hello" string is changed (s2 owns the value), s1 is invalid reference
         So rustcompiler will say: borrow of moved value 's1'
     */
+    let s1 = String::from("Hello");
+    let s2 = &s1;
+    let s3 = &s2;
+    let s4 = &s3;
+    let is_equal = ***s4 == "Hello".to_string();
+    println!("is_equal: {is_equal}");
 }
 fn view(s: String) {
     println!("string is {s}");
